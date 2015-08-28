@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html ng-app="about">
+<head>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <!--Material Design Icons from Google-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <!--angular-materialize for populating expandable/collapsibles -- what else can we do with it? find it on github-->
+    <script type="text/javascript" src="js/angular-materialize.js"></script>
+    <!--angular controllers and such-->
+    <script type="text/javascript" src="js/app.js"></script>
+
+    <title>Khaled Hassan</title>
+</head>
+
+<body>
+    <div class="navbar-fixed z-depth-2">
+        <nav class="blue-grey lighten-1" role="navigation">
+            <div class="nav-wrapper container">
+                <a class="brand-logo">kjh</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#">about</a></li>
+                    <li><a href="#">experience</a></li>
+                    <li><a href="#">contact</a></li>
+                </ul>
+
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#">Navbar Link</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="parallax-container center">
+        <br/><br/>
+        <div class="row"><h1>Khaled Hassan</h1></div>
+        <div class="row"><h5><em>insert witty tagline here.</em></h5></div>
+        <div class="parallax"><img src="images/sfo.jpg"/></div>
+    </div>
+
+    <div class="grey lighten-1">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m4">
+                    <h3 class="center">about me</h3>
+                    <p>haha</p>
+                </div>
+
+                <div class="col s12 m4">
+                    <h3 class="center">things I like</h3>
+                    <p>haha</p>
+                </div>
+
+                <div class="col s12 m4">
+                    <h3 class="center">mad skills</h3>
+                    <p>haha</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row center">
+            <h3>experience</h3>
+            <p>(click these!)</p>
+        </div>
+
+        <!--I'm using Angular to populate these; how cool is that?-->
+        <div class="row" ng-controller="ExperienceController as expCtrl" watch>
+            <ul class="collapsible" data-collapsible="expandable">
+                <li ng-repeat="job in expCtrl.jobs">
+                    <div class="collapsible-header truncate">
+                        {{ job.title }} <span ng-show="job.role">&mdash; {{ job.role }}</span>
+                        <em class="right" ng-show="job.start">{{ job.start }} &ndash; <span ng-show="job.end">{{ job.end }}</span><span ng-hide="job.end">present</span></em>
+                    </div>
+                    <div class="collapsible-body">
+                        <p>{{ job.body }}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="page-footer teal">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Company Bio</h5>
+                    <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Settings</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">Link 1</a></li>
+                        <li><a class="white-text" href="#!">Link 2</a></li>
+                        <li><a class="white-text" href="#!">Link 3</a></li>
+                        <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Connect</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">Link 1</a></li>
+                        <li><a class="white-text" href="#!">Link 2</a></li>
+                        <li><a class="white-text" href="#!">Link 3</a></li>
+                        <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>
