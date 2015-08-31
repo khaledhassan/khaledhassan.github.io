@@ -1,6 +1,12 @@
 $(document).ready(function(){
     $('.parallax').parallax();
+    $(".button-collapse").sideNav({
+        closeOnClick: true
+    });
+    $('.scrollspy').scrollSpy();
 });
+
+
 
 (function() {
     var app = angular.module('about', ['ui.materialize']);
@@ -36,5 +42,20 @@ $(document).ready(function(){
         }
     ];
 
+    app.controller('TaglineController', function(){
+        this.taglines = taglines;
+
+        this.getRandomTagline = function(){
+            return taglines[Math.floor(Math.random() * taglines.length)];
+        }
+    });
+
+    taglines = [
+        'insert witty tagline here.',
+        'now with more vitamin C!',
+        'presented in High Definition where available',
+        'lather, rinse, repeat',
+        '/* No Comment */'
+    ]
 
 })();

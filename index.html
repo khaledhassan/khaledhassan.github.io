@@ -3,6 +3,8 @@
 <head>
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <!--custom parameters-->
+    <link type="text/css" rel="stylesheet" href="css/app.css" media="screen,projection"/>
     <!--Material Design Icons from Google-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -26,15 +28,17 @@
     <div class="navbar-fixed z-depth-2">
         <nav class="blue-grey lighten-1" role="navigation">
             <div class="nav-wrapper container">
-                <a class="brand-logo">kjh</a>
+                <a class="brand-logo" href="#top">kjh</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#">about</a></li>
-                    <li><a href="#">experience</a></li>
-                    <li><a href="#">contact</a></li>
+                    <li><a href="#about">about</a></li>
+                    <li><a href="#experience">experience</a></li>
+                    <li><a href="#contact">contact</a></li>
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a href="#">Navbar Link</a></li>
+                    <li><a href="#about">about</a></li>
+                    <li><a href="#experience">experience</a></li>
+                    <li><a href="#contact">contact</a></li>>
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
@@ -42,36 +46,39 @@
     </div>
 
 
-    <div class="parallax-container center">
-        <br/><br/>
-        <div class="row"><h1>Khaled Hassan</h1></div>
-        <div class="row"><h5><em>insert witty tagline here.</em></h5></div>
-        <div class="parallax"><img src="images/sfo.jpg"/></div>
+    <div class="parallax-container center parallax-400px scrollspy" id="top" ng-controller="TaglineController as tag">
+        <div class="section no-pad-bot">
+            <br/>
+            <div class="row"><h1>Khaled Hassan</h1></div>
+            <div class="row"><h5><em ng-bind="tag.getRandomTagline()"></em></h5></div>
+            <div class="parallax"><img src="images/sfo.jpg"/></div>
+        </div>
     </div>
 
-    <div class="grey lighten-1">
+    <div class="grey lighten-1 nav-target scrollspy" id="about">
         <div class="container">
             <div class="row">
                 <div class="col s12 m4">
                     <h3 class="center">about me</h3>
-                    <p>haha</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend lacus orci, non scelerisque est vestibulum et. Sed tincidunt justo ac dolor egestas laoreet. In dignissim vitae arcu id ullamcorper. Morbi a velit lobortis, venenatis felis eu, feugiat ante. Pellentesque quis diam nec erat consequat ultricies id non diam. Sed bibendum ultricies mauris, at feugiat justo placerat viverra. Donec quis blandit erat. Vestibulum egestas pharetra metus in varius. Vestibulum sagittis eu dui vel laoreet. Aenean non arcu dui. Fusce nulla felis, imperdiet quis facilisis ac, porta eget leo. Donec ut sem neque. Suspendisse tincidunt suscipit magna, facilisis gravida nibh commodo id.</p>
+
                 </div>
 
                 <div class="col s12 m4">
                     <h3 class="center">things I like</h3>
-                    <p>haha</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend lacus orci, non scelerisque est vestibulum et. Sed tincidunt justo ac dolor egestas laoreet. In dignissim vitae arcu id ullamcorper. Morbi a velit lobortis, venenatis felis eu, feugiat ante. Pellentesque quis diam nec erat consequat ultricies id non diam. Sed bibendum ultricies mauris, at feugiat justo placerat viverra. Donec quis blandit erat. Vestibulum egestas pharetra metus in varius. Vestibulum sagittis eu dui vel laoreet. Aenean non arcu dui. Fusce nulla felis, imperdiet quis facilisis ac, porta eget leo. Donec ut sem neque. Suspendisse tincidunt suscipit magna, facilisis gravida nibh commodo id.</p>
                 </div>
 
                 <div class="col s12 m4">
                     <h3 class="center">mad skills</h3>
-                    <p>haha</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend lacus orci, non scelerisque est vestibulum et. Sed tincidunt justo ac dolor egestas laoreet. In dignissim vitae arcu id ullamcorper. Morbi a velit lobortis, venenatis felis eu, feugiat ante. Pellentesque quis diam nec erat consequat ultricies id non diam. Sed bibendum ultricies mauris, at feugiat justo placerat viverra. Donec quis blandit erat. Vestibulum egestas pharetra metus in varius. Vestibulum sagittis eu dui vel laoreet. Aenean non arcu dui. Fusce nulla felis, imperdiet quis facilisis ac, porta eget leo. Donec ut sem neque. Suspendisse tincidunt suscipit magna, facilisis gravida nibh commodo id.</p>
                 </div>
 
             </div>
         </div>
     </div>
 
-    <div class="container">
+    <div class="container nav-target scrollspy" id="experience">
         <div class="row center">
             <h3>experience</h3>
             <p>(click these!)</p>
@@ -79,7 +86,7 @@
 
         <!--I'm using Angular to populate these; how cool is that?-->
         <div class="row" ng-controller="ExperienceController as expCtrl" watch>
-            <ul class="collapsible" data-collapsible="expandable">
+            <ul class="collapsible" data-collapsible="accordion">
                 <li ng-repeat="job in expCtrl.jobs">
                     <div class="collapsible-header truncate">
                         {{ job.title }} <span ng-show="job.role">&mdash; {{ job.role }}</span>
@@ -93,7 +100,7 @@
         </div>
     </div>
 
-    <footer class="page-footer teal">
+    <footer class="page-footer teal nav-target scrollspy" id="contact">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
