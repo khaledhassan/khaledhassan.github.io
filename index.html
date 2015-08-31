@@ -25,8 +25,8 @@
 </head>
 
 <body>
-    <div class="navbar-fixed z-depth-2">
-        <nav class="blue-grey lighten-1" role="navigation">
+    <div class="navbar-fixed">
+        <nav class="blue-grey lighten-1 z-depth-2" role="navigation">
             <div class="nav-wrapper container">
                 <a class="brand-logo" href="#top">kjh</a>
                 <ul class="right hide-on-med-and-down">
@@ -60,7 +60,12 @@
             <div class="row">
                 <div class="col s12 m4">
                     <h3 class="center">about me</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend lacus orci, non scelerisque est vestibulum et. Sed tincidunt justo ac dolor egestas laoreet. In dignissim vitae arcu id ullamcorper. Morbi a velit lobortis, venenatis felis eu, feugiat ante. Pellentesque quis diam nec erat consequat ultricies id non diam. Sed bibendum ultricies mauris, at feugiat justo placerat viverra. Donec quis blandit erat. Vestibulum egestas pharetra metus in varius. Vestibulum sagittis eu dui vel laoreet. Aenean non arcu dui. Fusce nulla felis, imperdiet quis facilisis ac, porta eget leo. Donec ut sem neque. Suspendisse tincidunt suscipit magna, facilisis gravida nibh commodo id.</p>
+                    <p>
+                        I'm 22 years old, studying Computer Engineering at the University of Florida &mdash;
+                        <span class="orange-text text-darken-2">Go</span> <span class="blue-text text-darken-3">Gators!</span><br/><br/>
+                        My focus so far has been on hardware, but I am fascinated by the boundary between hardware and software.
+                        I would like to work on projects from concept generation to production; from schematic design to acceptance testing.
+                    </p>
 
                 </div>
 
@@ -71,7 +76,12 @@
 
                 <div class="col s12 m4">
                     <h3 class="center">mad skills</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend lacus orci, non scelerisque est vestibulum et. Sed tincidunt justo ac dolor egestas laoreet. In dignissim vitae arcu id ullamcorper. Morbi a velit lobortis, venenatis felis eu, feugiat ante. Pellentesque quis diam nec erat consequat ultricies id non diam. Sed bibendum ultricies mauris, at feugiat justo placerat viverra. Donec quis blandit erat. Vestibulum egestas pharetra metus in varius. Vestibulum sagittis eu dui vel laoreet. Aenean non arcu dui. Fusce nulla felis, imperdiet quis facilisis ac, porta eget leo. Donec ut sem neque. Suspendisse tincidunt suscipit magna, facilisis gravida nibh commodo id.</p>
+                    <p>Lorem ipsum</p>
+                    <ul class=>
+                        <li>dolor sit amet,</li>
+                        <li>consectetur adipiscing elit.</li>
+                        <li>Suspendisse eleifend lacus orci,</li>
+                    </ul>
                 </div>
 
             </div>
@@ -79,25 +89,50 @@
     </div>
 
     <div class="container nav-target scrollspy" id="experience">
-        <div class="row center">
+        <div class="row center no-pad-bot">
             <h3>experience</h3>
             <p>(click these!)</p>
         </div>
 
         <!--I'm using Angular to populate these; how cool is that?-->
-        <div class="row" ng-controller="ExperienceController as expCtrl" watch>
-            <ul class="collapsible" data-collapsible="accordion">
-                <li ng-repeat="job in expCtrl.jobs">
-                    <div class="collapsible-header truncate">
-                        {{ job.title }} <span ng-show="job.role">&mdash; {{ job.role }}</span>
-                        <em class="right" ng-show="job.start">{{ job.start }} &ndash; <span ng-show="job.end">{{ job.end }}</span><span ng-hide="job.end">present</span></em>
-                    </div>
-                    <div class="collapsible-body">
-                        <p>{{ job.body }}</p>
-                    </div>
-                </li>
-            </ul>
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs no-pad-top">
+                    <li class="tab col s6"><a href="#work">work</a></li>
+                    <li class="tab col s6"><a href="#play">play</a></li>
+                </ul>
+            </div>
+            <div id="work" class="col s12" ng-controller="ExperienceController as expCtrl" watch>
+                <ul class="collapsible" data-collapsible="accordion">
+                    <li ng-repeat="job in expCtrl.jobs">
+                        <div class="collapsible-header truncate">
+                            {{ job.title }} <span ng-show="job.role">&mdash; {{ job.role }}</span>
+                            <em class="right" ng-show="job.start">{{ job.start }} &ndash; <span ng-show="job.end">{{ job.end }}</span><span ng-hide="job.end">present</span></em>
+                        </div>
+                        <div class="collapsible-body">
+                            <p class="job-body" ng-repeat="paragraph in job.body">{{ paragraph }}</p>
+                            <p class="job-body" ng-show="job.link"><a ng-href="{{ job.link.url }}">{{ job.link.text }}</a></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="play" class="col s12" ng-controller="ProjectsController as projCtrl" watch>
+                <ul class="collapsible" data-collapsible="accordion">
+                    <li ng-repeat="proj in projCtrl.projects">
+                        <div class="collapsible-header truncate">
+                            {{ proj.title }}
+                        </div>
+                        <div class="collapsible-body">
+                            <p class="job-body" ng-repeat="paragraph in proj.body">{{ paragraph }}</p>
+                            <p class="job-body" ng-show="proj.link"><a ng-href="{{ proj.link.url }}">{{ proj.link.text }}</a></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
+
+
     </div>
 
     <footer class="page-footer teal nav-target scrollspy" id="contact">

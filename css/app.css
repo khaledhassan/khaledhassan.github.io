@@ -2,15 +2,7 @@
     height: 400px;
 }
 
-/*/!* help fix navbar offset, shamelessly stolen from https://stackoverflow.com/a/12606867 *!/*/
-/*body {*/
-    /*margin-top: 0px;/!* make room for the nav bar *!/*/
-    /*padding-top: 00px;*/
-/*}*/
-
-/*/!* make room for the nav bar *!/*/
-/*.nav-target {*/
-    /*padding-top: 50px;*/
-    /*padding-bottom: 50px;*/
-    /*margin-top: -50px;*/
-/*}*/
+p.job-body {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
