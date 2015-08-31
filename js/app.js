@@ -35,7 +35,7 @@ $(document).ready(function(){
                 'system\'s computer) for the GPS beacons; developing components for and testing the FPGA firmware for ' +
                 'the real-time video processing; working with the software team to resolve issues relating to Linux ' +
                 'kernel bugs and hardware integration; managing schedule and priorities for a team of 7 students to ' +
-                'meet deadlines relating to the IPPD program. '
+                'meet deadlines relating to the IPPD program.'
             ],
             link: {
                 text: 'Learn more',
@@ -103,7 +103,20 @@ $(document).ready(function(){
 
     var projects = [
         {
-            title: 'COP4600 Shell',
+            title: 'GMail attachment downloader',
+            body: [
+                'I tinkered around with Python and SQLite to download student lab submissions for analysis, using the GMail API.',
+                'If I told you any more, I\'d have to kill you... ',
+                '... just kidding. The code isn\'t really worth seeing, but it was a neat introduction to the peewee ORM ' +
+                'and databases in general.'
+            ],
+            link: {
+                text: "peewee",
+                url: "https://peewee.readthedocs.org/en/latest/index.html"
+            }
+        },
+        {
+            title: 'COP4600 Shell project',
             body: [
                 'The final project for my Operating Systems class was to create a ksh-like shell for Unix. ',
 
@@ -119,7 +132,7 @@ $(document).ready(function(){
             }
         },
         {
-            title: 'IEEE 2014',
+            title: 'IEEE 2014 robot',
             body: [
                 'The IEEE Hardware Competition at SoutheastCon typically involved a small microcontroller based ' +
                 'robot to complete tasks using simple sensors (line sensors, color sensors, etc), and teams would ' +
@@ -130,13 +143,14 @@ $(document).ready(function(){
                 'Rather than drive along the path marked on the course, we wanted to drive straight to each spot. ' +
                 'Our computer vision algorithms would determine the three shooting locations before we moved from the ' +
                 'starting zone, and our \"gun\" would remain pointed at the target as we proceeded from spot to spot. ' +
-                'Mechanum wheels allowed us to strafe and rotate '
+                'Mechanum wheels allowed us to strafe and rotate, even at the same time. We used the Robot Operating System ' +
+                '(ROS.org) to process sensor data and tie all the software components together.'
             ],
             link: {
                 text: 'See the code',
                 url: 'https://github.com/ufieeehw/IEEE2014/'
             }
-        },
+        }
 
     ];
 

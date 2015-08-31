@@ -6,3 +6,8 @@ p.job-body {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+.bullet {
+    list-style-type: circle;
+    margin-left: 20px;
+}
