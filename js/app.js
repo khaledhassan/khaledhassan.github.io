@@ -159,15 +159,15 @@ $(document).ready(function(){
 
         this.getRandomTagline = function(){
             return taglines[Math.floor(Math.random() * taglines.length)];
-        }
+        };
     });
 
-    taglines = [
+    var taglines = [
         'insert witty tagline here',
         'now with more vitamin C!',
         'presented in High Definition where available',
         'lather, rinse, repeat',
         '/* No Comment */'
-    ]
+    ];
 
 })();
